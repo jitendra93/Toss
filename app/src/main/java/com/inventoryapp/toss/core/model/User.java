@@ -3,6 +3,7 @@ package com.inventoryapp.toss.core.model;
 import com.google.gson.annotations.SerializedName;
 
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 /**
  * Created by Jitendra Alekar on 9/3/2017.
@@ -10,14 +11,15 @@ import io.realm.RealmObject;
 
 
 public class User extends RealmObject {
-    public static final String T_C_S_ID = "tCS_id";
+    public static final String USER_ID = "userId";
     public static final String PIN = "pin";
     public static final String NAME = "name";
     public static final String SUPER_USER = "superUser";
     public static final String ACTIVE = "active";
 
-    @SerializedName("TCS_id")
-    private String tCS_id;
+    @PrimaryKey
+    @SerializedName("userId")
+    private String userId;
     @SerializedName("pin")
     private String pin;
     @SerializedName("name")
@@ -30,13 +32,12 @@ public class User extends RealmObject {
     public User() {
     }
 
-    public String getTCS_id() {
-        return this.tCS_id;
+    public String getUserId() {
+        return userId;
     }
 
-    public User setTCS_id(String tCS_id) {
-        this.tCS_id = tCS_id;
-        return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getPin() {

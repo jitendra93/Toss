@@ -3,6 +3,7 @@ package com.inventoryapp.toss.core.model;
 import com.google.gson.annotations.SerializedName;
 
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 /**
  * Created by Jitendra Alekar on 9/3/2017.
@@ -16,6 +17,7 @@ public class Device extends RealmObject {
     public static final String OS_VERSION = "osVersion";
     public static final String IMG_U_R_L = "imgURL";
 
+    @PrimaryKey
     @SerializedName("deviceId")
     private String deviceId;
     @SerializedName("currentOwner")
