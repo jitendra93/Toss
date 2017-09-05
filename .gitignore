@@ -1,7 +1,6 @@
 ### Android ###
 # Built application files
 *.apk
-*.ap_
 
 # Files for the Dalvik VM
 *.dex
@@ -31,10 +30,6 @@ proguard/
 
 ### Android Patch ###
 gen-external-apklibs
-
-
-### Java ###
-*.class
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
