@@ -1,6 +1,7 @@
 package com.inventoryapp.toss.ui
 
 import android.os.Bundle
+import android.support.design.widget.FloatingActionButton
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -24,8 +25,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
+        setContentView(R.layout.activity_main)
+        val fab: FloatingActionButton = findViewById(R.id.fab_main_activity)
+        fab.setOnClickListener { click ->
+            val intent = LoginActivity.getLoginIntent(this)
+            startActivityForResult(intent, 123)
+        }
         viewInitialisation()
     }
 

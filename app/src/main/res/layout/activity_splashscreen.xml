@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0099cc"
+    android:background="@color/colorPrimary"
+    android:theme="@style/Theme.AppCompat.NoActionBar"
     tools:context="com.inventoryapp.toss.ui.SplashscreenActivity">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
@@ -15,7 +16,7 @@
         android:gravity="center"
         android:keepScreenOn="true"
         android:text="@string/dummy_content"
-        android:textColor="#33b5e5"
+        android:textColor="#eee"
         android:textSize="50sp"
         android:textStyle="bold" />
 
@@ -33,16 +34,18 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center_horizontal"
             android:background="@color/black_overlay"
+            android:elevation="@dimen/dp_8"
             android:orientation="horizontal"
             tools:ignore="UselessParent">
 
-            <Button
+            <TextView
                 android:id="@+id/dummy_button"
                 style="?metaButtonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/dummy_button" />
+                android:text="@string/dummy_button"
+                android:textAllCaps="false" />
 
         </LinearLayout>
     </FrameLayout>
