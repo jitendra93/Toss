@@ -2,7 +2,8 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground">
 
     <ImageView
         android:id="@+id/iv_device_img"
@@ -22,6 +23,7 @@
         android:layout_marginStart="@dimen/dp_8"
         android:layout_marginTop="@dimen/dp_8"
         android:ellipsize="end"
+        android:textSize="@dimen/sp_20"
         android:maxLines="1"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@id/iv_device_img"
@@ -33,12 +35,25 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/dp_8"
         android:layout_marginStart="@dimen/dp_8"
-        android:layout_marginTop="@dimen/dp_8"
+        android:textSize="@dimen/sp_16"
         android:ellipsize="end"
         android:maxLines="1"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@id/iv_device_img"
         app:layout_constraintTop_toBottomOf="@id/tv_device_name" />
+
+    <TextView
+        android:id="@+id/tv_device_os_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_8"
+        android:layout_marginStart="@dimen/dp_8"
+        android:textSize="@dimen/sp_16"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@id/iv_device_img"
+        app:layout_constraintTop_toBottomOf="@id/tv_current_owner" />
 
     <View
         android:layout_width="match_parent"

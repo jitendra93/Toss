@@ -17,7 +17,7 @@ import com.inventoryapp.toss.model.Device
  * Created by fRe@k(Gaurav Singh) on 9/5/2017
  */
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), DeviceListAdapter.OnItemClickListener {
 
     private val mDatabaseReference = FirebaseDatabase.getInstance().reference
     private val mDeviceDatabaseReference = mDatabaseReference.child("devices")
@@ -51,10 +51,14 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    override fun onItemClick(position: Int) {
+        Log.d("Gaurav", "wsdfgh")
+    }
+
     private fun viewInitialisation() {
         val recyclerView = findViewById<RecyclerView>(R.id.rv_device_list)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        deviceListAdapter = DeviceListAdapter()
+        deviceListAdapter = DeviceListAdapter(this)
         recyclerView.adapter = deviceListAdapter
     }
 }
