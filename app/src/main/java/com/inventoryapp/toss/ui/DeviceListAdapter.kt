@@ -10,7 +10,7 @@ import com.inventoryapp.toss.model.Device
  * Created by fRe@k(Gaurav Singh) on 9/5/2017.
  */
 
-internal class DeviceListAdapter : RecyclerView.Adapter<DeviceViewHolder>() {
+internal class DeviceListAdapter(private val listener: OnItemClickListener) : RecyclerView.Adapter<DeviceViewHolder>() {
 
     var deviceList: List<Device>? = null
         set(deviceList) {
@@ -22,7 +22,7 @@ internal class DeviceListAdapter : RecyclerView.Adapter<DeviceViewHolder>() {
 
         val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.layout_device_list_item, parent, false)
-        return DeviceViewHolder(view)
+        return DeviceViewHolder(view, listener)
     }
 
     override fun onBindViewHolder(holder: DeviceViewHolder, position: Int) {
@@ -35,5 +35,9 @@ internal class DeviceListAdapter : RecyclerView.Adapter<DeviceViewHolder>() {
             return 0
         }
         return deviceList!!.size
+    }
+
+    internal interface OnItemClickListener {
+        fun onItemClick(position: Int)
     }
 }
