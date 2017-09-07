@@ -17,7 +17,7 @@ import com.inventoryapp.toss.model.Device
  * Created by fRe@k(Gaurav Singh) on 9/5/2017
  */
 
-class MainActivity : AppCompatActivity(), DeviceListAdapter.OnItemClickListener {
+class MainActivity : AppCompatActivity(), DeviceListAdapter.OnItemClickListener, ValueEventListener {
 
     private val mDatabaseReference = FirebaseDatabase.getInstance().reference
     private val mDeviceDatabaseReference = mDatabaseReference.child("devices")
@@ -35,24 +35,31 @@ class MainActivity : AppCompatActivity(), DeviceListAdapter.OnItemClickListener 
         viewInitialisation()
     }
 
+    override fun onDataChange(dataSnapshot: DataSnapshot) {
+        val devices = dataSnapshot.children.map { it.getValue(Device::class.java)!! }
+        deviceListAdapter!!.deviceList = devices
+    }
+
+    override fun onCancelled(databaseError: DatabaseError) {
+        Log.e("Gaurav", databaseError.message)
+    }
+
     override fun onStart() {
         super.onStart()
 
-        mDeviceDatabaseReference.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
+        mDeviceDatabaseReference.addValueEventListener(this)
+    }
 
-                val devices = dataSnapshot.children.map { it.getValue(Device::class.java)!! }
-                deviceListAdapter!!.deviceList = devices
-            }
+    override fun onStop() {
+        super.onStop()
 
-            override fun onCancelled(databaseError: DatabaseError) {
-                Log.e("Gaurav", databaseError.message)
-            }
-        })
+        mDeviceDatabaseReference.removeEventListener(this)
     }
 
     override fun onItemClick(position: Int) {
-        Log.d("Gaurav", "wsdfgh")
+        startActivity(DeviceDetailActivity.getDeviceDetailActivityIntent(
+                this,
+                deviceListAdapter!!.deviceList, position))
     }
 
     private fun viewInitialisation() {
