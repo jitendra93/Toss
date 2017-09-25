@@ -40,6 +40,7 @@
         <activity
             android:name=".ui.DeviceDetailActivity"
             android:label="@string/title_activity_device_detail"
+            android:parentActivityName=".ui.MainActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

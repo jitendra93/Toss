@@ -94,4 +94,12 @@ public class DeviceDetailActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onBackPressed() {
+        this.finish();
+
+
+        overridePendingTransition(R.anim.right_slide_in, R.anim.right_slide_out);
+    }
 }

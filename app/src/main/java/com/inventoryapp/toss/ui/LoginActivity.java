@@ -161,6 +161,13 @@ public class LoginActivity extends AppCompatActivity {
     private void showProgress(boolean b) {
     }
 
+    @Override
+    public void onBackPressed() {
+        this.finish();
+
+        overridePendingTransition(R.anim.right_slide_in, R.anim.right_slide_out);
+    }
+
     /**
      * Represents an asynchronous login/registration task used to authenticate
      * the user.

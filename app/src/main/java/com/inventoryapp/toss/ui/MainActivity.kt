@@ -30,7 +30,8 @@ class MainActivity : AppCompatActivity(), DeviceListAdapter.OnItemClickListener,
         val fab: FloatingActionButton = findViewById(R.id.fab_main_activity)
         fab.setOnClickListener { click ->
             val intent = LoginActivity.getLoginIntent(this)
-            startActivityForResult(intent, 123)
+            startActivity(intent)
+            overridePendingTransition(R.anim.right_slide_in, R.anim.right_slide_out)
         }
         viewInitialisation()
     }
@@ -63,6 +64,7 @@ class MainActivity : AppCompatActivity(), DeviceListAdapter.OnItemClickListener,
         startActivity(DeviceDetailActivity.getDeviceDetailActivityIntent(
                 this,
                 deviceListAdapter!!.deviceList, position))
+        overridePendingTransition(R.anim.right_slide_in, R.anim.right_slide_out)
     }
 
     private fun viewInitialisation() {
