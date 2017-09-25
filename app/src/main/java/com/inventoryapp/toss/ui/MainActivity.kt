@@ -56,7 +56,10 @@ class MainActivity : AppCompatActivity(), DeviceListAdapter.OnItemClickListener,
         mDeviceDatabaseReference.removeEventListener(this)
     }
 
+
     override fun onItemClick(position: Int) {
+
+
         startActivity(DeviceDetailActivity.getDeviceDetailActivityIntent(
                 this,
                 deviceListAdapter!!.deviceList, position))
